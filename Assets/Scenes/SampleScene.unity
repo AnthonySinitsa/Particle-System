@@ -352,7 +352,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 50, y: 50, z: 50}
+  m_Size: {x: 25, y: 25, z: 25}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1844727326
 MeshFilter:
@@ -371,8 +371,8 @@ Transform:
   m_GameObject: {fileID: 1844727323}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 420, z: 0}
+  m_LocalScale: {x: 25, y: 25, z: 25}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -390,7 +390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 188640872}
-  numberOfBalls: 50
+  numberOfBalls: 10
   sphereRadius: 5
 --- !u!1001 &626469431480664320
 PrefabInstance:
@@ -406,15 +406,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8204860156592674861, guid: 68abe4a09707c954aa347c1f28bc2f73, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8204860156592674861, guid: 68abe4a09707c954aa347c1f28bc2f73, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8204860156592674861, guid: 68abe4a09707c954aa347c1f28bc2f73, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8204860156592674861, guid: 68abe4a09707c954aa347c1f28bc2f73, type: 3}
       propertyPath: m_LocalPosition.x
@@ -422,7 +422,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8204860156592674861, guid: 68abe4a09707c954aa347c1f28bc2f73, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 420
       objectReference: {fileID: 0}
     - target: {fileID: 8204860156592674861, guid: 68abe4a09707c954aa347c1f28bc2f73, type: 3}
       propertyPath: m_LocalPosition.z
