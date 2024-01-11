@@ -352,7 +352,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 20, y: 20, z: 20}
+  m_Size: {x: 50, y: 50, z: 50}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1844727326
 MeshFilter:
@@ -391,6 +391,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 188640872}
   numberOfBalls: 50
+  spawnRadius: 0.5
+  maxSpawnAttemptsPerBall: 10
 --- !u!1001 &626469431480664320
 PrefabInstance:
   m_ObjectHideFlags: 0

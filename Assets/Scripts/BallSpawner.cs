@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class BallSpawner : MonoBehaviour{
     public GameObject ballPrefab;
-    public int numberOfBalls = 100;
+    public int numberOfBalls = 10;
     public float spawnRadius = 0.5f;
-    public int maxSpawnAttemptsPerBall = 10;
+    public int maxSpawnAttemptsPerBall = 1000;
 
     void Start(){
         for(int i = 0; i < numberOfBalls; i++){
@@ -21,8 +21,13 @@ public class BallSpawner : MonoBehaviour{
             if(!Physics.CheckSphere(position, spawnRadius)){
                 Instantiate(ballPrefab, position, Quaternion.identity);
                 placed = true;
+            } else{
+                Debug.Log("Spawn attempt failed at: " + position);
             }
             attempts++;
+        }
+        if(!placed){
+            Debug.LogWarning("Failed to place ball after " + maxSpawnAttemptsPerBall + " attempts.");
         }
     }
 
