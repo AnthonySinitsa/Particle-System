@@ -352,7 +352,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 25, y: 25, z: 25}
+  m_Size: {x: 10, y: 10, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1844727326
 MeshFilter:
@@ -372,7 +372,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -391,7 +391,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 188640872}
   numberOfBalls: 10
-  sphereRadius: 5
+  startPoint: {x: 0, y: 0, z: 0}
+  endPoint: {x: 9, y: 0, z: 0}
 --- !u!1001 &626469431480664320
 PrefabInstance:
   m_ObjectHideFlags: 0

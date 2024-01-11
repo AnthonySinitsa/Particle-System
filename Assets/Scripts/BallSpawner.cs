@@ -3,17 +3,15 @@ using UnityEngine;
 public class BallSpawner : MonoBehaviour{
     public GameObject ballPrefab;
     public int numberOfBalls = 10;
-    public float sphereRadius = 20f; // radius of sphere within the balls will be
+    public Vector3 startPoint = new Vector3(0, 0, 0);
+    public Vector3 endPoint = new Vector3(9, 0, 0);
 
     void Start(){
         for(int i = 0; i < numberOfBalls; i++){
-            SpawnBallInSphere();
+            Vector3 position = Vector3.Lerp(
+                startPoint, endPoint, (float)i / (numberOfBalls - 1)
+            );
+            Instantiate(ballPrefab, position, Quaternion.identity);
         }
-    }
-
-    void SpawnBallInSphere(){
-        Vector3 randomPositionInSphere = Random.insideUnitSphere * sphereRadius;
-        Vector3 spawnPosition = transform.position + randomPositionInSphere; // adjust spawn position based on spawner's location
-        Instantiate(ballPrefab, spawnPosition, Quaternion.identity);
     }
 }
