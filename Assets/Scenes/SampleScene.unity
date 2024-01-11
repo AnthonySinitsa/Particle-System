@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &188640872 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8893629090053801034, guid: 68abe4a09707c954aa347c1f28bc2f73, type: 3}
+  m_PrefabInstance: {fileID: 626469431480664320}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,8 +307,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: -0.07370016, y: 0.9188194, z: -0.20624754, w: -0.328331}
+  m_LocalPosition: {x: 18.177265, y: 12.126584, z: 17.565308}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -343,11 +348,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 20, y: 20, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1844727326
 MeshFilter:
@@ -384,8 +389,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f528a73f6e57744a4fa9912e900a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballPrefab: {fileID: 0}
-  numberOfBalls: 100
+  ballPrefab: {fileID: 188640872}
+  numberOfBalls: 50
 --- !u!1001 &626469431480664320
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -395,16 +400,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 8204860156592674861, guid: 68abe4a09707c954aa347c1f28bc2f73, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204860156592674861, guid: 68abe4a09707c954aa347c1f28bc2f73, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204860156592674861, guid: 68abe4a09707c954aa347c1f28bc2f73, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204860156592674861, guid: 68abe4a09707c954aa347c1f28bc2f73, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5646782
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8204860156592674861, guid: 68abe4a09707c954aa347c1f28bc2f73, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.8307452
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8204860156592674861, guid: 68abe4a09707c954aa347c1f28bc2f73, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.7082024
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8204860156592674861, guid: 68abe4a09707c954aa347c1f28bc2f73, type: 3}
       propertyPath: m_LocalRotation.w
