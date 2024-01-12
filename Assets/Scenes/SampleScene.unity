@@ -263,9 +263,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 8893629090053801034, guid: 68abe4a09707c954aa347c1f28bc2f73, type: 3}
   ballsContainer: {fileID: 732986187}
-  ballsX: 2
-  ballsY: 2
-  ballsZ: 2
+  ballsX: 10
+  ballsY: 10
+  ballsZ: 10
   spacing: 1
 --- !u!1 &963194225
 GameObject:
