@@ -11,13 +11,7 @@ public class BallSpawner : MonoBehaviour{
             Vector3 position = Vector3.Lerp(
                 startPoint, endPoint, (float)i / (numberOfBalls - 1)
             );
-            GameObject newBall = Instantiate(ballPrefab, position, Quaternion.identity);
-            Rigidbody rb = newBall.GetComponent<Rigidbody>();
-
-            if(rb != null){
-                rb.velocity = Vector3.zero;
-                rb.angularVelocity = Vector3.zero;
-            }
+            Instantiate(ballPrefab, position, Quaternion.identity);
         }
     }
 }
