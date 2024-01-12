@@ -1,17 +1,35 @@
 using UnityEngine;
 
 public class BallSpawner : MonoBehaviour{
-    public GameObject ballPrefab;
-    public int numberOfBalls = 10;
-    public Vector3 startPoint = new Vector3(0, 1, 0);
-    public Vector3 endPoint = new Vector3(9, 1, 0);
+    [SerializeField]
+    private GameObject ballPrefab;
+
+    [SerializeField]
+    private int ballsX = 5;
+
+    [SerializeField]
+    private int ballsY = 5;
+
+    [SerializeField]
+    private int ballsZ = 5;
+
+    [SerializeField]
+    private float spacing = 1.0f;
 
     void Start(){
-        for(int i = 0; i < numberOfBalls; i++){
-            Vector3 position = Vector3.Lerp(
-                startPoint, endPoint, (float)i / (numberOfBalls - 1)
-            );
-            Instantiate(ballPrefab, position, Quaternion.identity);
+        SpawnBalls();
+    }
+
+    void SpawnBalls(){
+        for(int x = 0; x < ballsX; x++){
+            for(int y = 0; y < ballsY; y++){
+                for(int z = 0; z < ballsZ; z++){
+                    Vector3 position = new Vector3(
+                        x * spacing, y * spacing, z * spacing
+                    ) + transform.position;
+                    Instantiate(ballPrefab, position, Quaternion.identity);
+                }
+            }
         }
     }
 }
