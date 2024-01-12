@@ -13,7 +13,7 @@ public class BallSpawner : MonoBehaviour{
     [SerializeField, Range(2, 100)]
     private int ballsZ = 5;
 
-    [SerializeField]
+    [SerializeField, Range(0.1f, 2.0f)]
     private float spacing = 1.0f;
 
     void Start(){
