@@ -386,7 +386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 8893629090053801034, guid: 68abe4a09707c954aa347c1f28bc2f73, type: 3}
   ballsX: 5
-  ballsY: 5
+  ballsY: 1
   ballsZ: 5
   spacing: 1
 --- !u!1660057539 &9223372036854775807

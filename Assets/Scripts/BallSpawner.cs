@@ -4,13 +4,13 @@ public class BallSpawner : MonoBehaviour{
     [SerializeField]
     private GameObject ballPrefab;
 
-    [SerializeField]
+    [SerializeField, Range(2, 100)]
     private int ballsX = 5;
 
-    [SerializeField]
+    [SerializeField, Range(2, 100)]
     private int ballsY = 5;
 
-    [SerializeField]
+    [SerializeField, Range(2, 100)]
     private int ballsZ = 5;
 
     [SerializeField]
