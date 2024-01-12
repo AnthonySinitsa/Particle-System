@@ -4,6 +4,9 @@ public class BallSpawner : MonoBehaviour{
     [SerializeField]
     private GameObject ballPrefab;
 
+    [SerializeField]
+    private GameObject ballsContainer;
+
     [SerializeField, Range(2, 100)]
     private int ballsX = 5;
 
@@ -27,7 +30,11 @@ public class BallSpawner : MonoBehaviour{
                     Vector3 position = new Vector3(
                         x * spacing, y * spacing, z * spacing
                     ) + transform.position;
-                    Instantiate(ballPrefab, position, Quaternion.identity);
+                    GameObject newBall = Instantiate(ballPrefab, position, Quaternion.identity);
+
+                    if(ballsContainer != null){
+                        newBall.transform.SetParent(ballsContainer.transform);
+                    }
                 }
             }
         }
