@@ -261,10 +261,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f528a73f6e57744a4fa9912e900a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballPrefab: {fileID: 0}
-  ballsContainer: {fileID: 0}
+  ballPrefab: {fileID: 8893629090053801034, guid: 68abe4a09707c954aa347c1f28bc2f73, type: 3}
+  ballsContainer: {fileID: 732986187}
   ballsX: 5
-  ballsY: 5
+  ballsY: 2
   ballsZ: 5
   spacing: 1
 --- !u!1 &963194225
