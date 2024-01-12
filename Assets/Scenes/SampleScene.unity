@@ -263,9 +263,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 8893629090053801034, guid: 68abe4a09707c954aa347c1f28bc2f73, type: 3}
   ballsContainer: {fileID: 732986187}
-  ballsX: 5
+  ballsX: 2
   ballsY: 2
-  ballsZ: 5
+  ballsZ: 2
   spacing: 1
 --- !u!1 &963194225
 GameObject:
@@ -370,7 +370,6 @@ GameObject:
   - component: {fileID: 1844727327}
   - component: {fileID: 1844727326}
   - component: {fileID: 1844727324}
-  - component: {fileID: 1844727328}
   m_Layer: 0
   m_Name: Box
   m_TagString: Untagged
@@ -422,24 +421,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1844727328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1844727323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4f528a73f6e57744a4fa9912e900a82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ballPrefab: {fileID: 8893629090053801034, guid: 68abe4a09707c954aa347c1f28bc2f73, type: 3}
-  ballsContainer: {fileID: 0}
-  ballsX: 5
-  ballsY: 1
-  ballsZ: 5
-  spacing: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
