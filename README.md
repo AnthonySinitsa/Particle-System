@@ -31,3 +31,14 @@
 - Test the job system with an increasing number of elements to see how it scales.
 
 - Use Unity's Profiler to indentify bottlenecks and optimize job.
+
+
+2. Object Pooling
+Implement Pooling: Instead of instantiating and destroying objects, reuse them. Pooling is highly effective in managing a large number of objects.
+3. Rendering Optimization
+Level of Detail (LOD): Implement LOD for the balls, using simpler models or even billboards at greater distances.
+Culling and Occlusion: Ensure that Unity's occlusion culling is properly set up so that balls not in view are not rendered.
+Material and Shader Optimization: Use simple materials and shaders for the balls. Complex shaders can significantly impact performance.
+4. Profiling
+Unity Profiler: Use Unity's Profiler to identify the most performance-intensive areas. Look for CPU spikes and memory usage peaks.
+Deep Profiling: For detailed insights, use deep profiling to track down specific performance issues.
