@@ -17,13 +17,15 @@ public struct UpdateBallPositionsJob : IJobParallelFor{
 
 public class BallPositionUpdater : MonoBehaviour{
     public Transform[] ballTransforms; // Array of ball Transforms
-    void Start(){
-        int numBalls = ballTransforms.Length;
-        var ballPositions = new NativeArray<float3>(numBalls, Allocator.TempJob);
+    private NativeArray<float3> ballPositions;
+    private bool isInitialized = false;
 
-        for(int i = 0; i < numBalls; i++){
-            ballPositions[i] = ballTransforms[i].position;
-        }
+    void Start(){
+        InitializePositions();
+    }
+
+    void Update(){
+        if(!isInitialized) return;
 
         UpdateBallPositionsJob job = new UpdateBallPositionsJob
         {
@@ -32,18 +34,34 @@ public class BallPositionUpdater : MonoBehaviour{
             gravity = new float3(0, -9.81f, 0)
         };
 
-        JobHandle jobHandle = job.Schedule(numBalls, 64);
+        JobHandle jobHandle = job.Schedule(ballTransforms.Length, 64);
         jobHandle.Complete();
 
         // Apply updated positions to balls
-        for(int i = 0; i < numBalls; i++){
+        for(int i = 0; i < ballTransforms.Length; i++){
             ballTransforms[i].position = ballPositions[i];
         }
+    }
 
-        ballPositions.Dispose();
+    void InitializePositions(){
+        int numBalls = ballTransforms.Length;
+        ballPositions = new NativeArray<float3>(numBalls, Allocator.Persistent);
+
+        for(int i = 0; i < numBalls; i ++){
+            ballPositions[i] = ballTransforms[i].position;
+        }
+
+        isInitialized = true;
+    }
+
+    void OnDestroy(){
+        if(isInitialized){
+            ballPositions.Dispose();
+        }
     }
 
     public void SetBallTransforms(Transform[] transforms){
         ballTransforms = transforms;
+        InitializePositions();
     }
 }
