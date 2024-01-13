@@ -15,10 +15,15 @@ public struct UpdateBallPositionsJob : IJobParallelFor{
     }
 }
 
-public class MyJobRunner : MonoBehaviour{
+public class BallPositionUpdater : MonoBehaviour{
+    public Transform[] ballTransforms; // Array of ball Transforms
     void Start(){
-        int numBalls = 1000;
+        int numBalls = ballTransforms.Length;
         var ballPositions = new NativeArray<float3>(numBalls, Allocator.TempJob);
+
+        for(int i = 0; i < numBalls; i++){
+            ballPositions[i] = ballTransforms[i].position;
+        }
 
         UpdateBallPositionsJob job = new UpdateBallPositionsJob
         {
@@ -31,7 +36,9 @@ public class MyJobRunner : MonoBehaviour{
         jobHandle.Complete();
 
         // Apply updated positions to balls
-        // ...
+        for(int i = 0; i < numBalls; i++){
+            ballTransforms[i].position = ballPositions[i];
+        }
 
         ballPositions.Dispose();
     }
