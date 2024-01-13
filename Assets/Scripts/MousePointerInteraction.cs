@@ -3,10 +3,10 @@ using UnityEngine;
 public class MousePointerInteraction : MonoBehaviour{
     
     [SerializeField, Range(0.01f, 10f)]
-    public float forceAmount = 1f;
+    private float forceAmount = 0.01f;
 
     [SerializeField, Range(0.01f, 10f)]
-    public float reactionRadius = 1f;
+    private float reactionRadius = 0.01f;
 
     void Update(){
         if (Input.GetMouseButton(0)){ //checks if left mouse button pressed
