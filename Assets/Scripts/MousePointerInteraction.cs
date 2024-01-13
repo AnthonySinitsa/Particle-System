@@ -22,7 +22,7 @@ public class MousePointerInteraction : MonoBehaviour{
                         Vector3 direction = collider.transform.position - hit.point;
                         float distance = direction.magnitude;
                         Vector3 force = direction.normalized * (forceAmount / (distance + 1)); // +1 to avoid division by zero
-                        rb.AddForce(force, ForceMode.Impulse);
+                        rb.AddForce(force, ForceMode.Force);
                     }
                 }
             }
