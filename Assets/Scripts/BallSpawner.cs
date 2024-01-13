@@ -35,6 +35,11 @@ public class BallSpawner : MonoBehaviour{
                     if(ballsContainer != null){
                         newBall.transform.SetParent(ballsContainer.transform);
                     }
+
+                    var BallPositionUpdater = GetComponent<BallPositionUpdater>();
+                    if(BallPositionUpdater != null){
+                        BallPositionUpdater.SetBallTransforms(FindObjectsOfType<Transform>());
+                    }
                 }
             }
         }

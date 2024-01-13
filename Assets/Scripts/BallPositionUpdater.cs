@@ -42,4 +42,8 @@ public class BallPositionUpdater : MonoBehaviour{
 
         ballPositions.Dispose();
     }
+
+    public void SetBallTransforms(Transform[] transforms){
+        ballTransforms = transforms;
+    }
 }
