@@ -48,6 +48,20 @@ public class BallPositionUpdater : MonoBehaviour{
         
         if (ballTransforms == null || ballTransforms.Length == 0) return;
 
+        foreach(var transform in ballTransforms){
+            if(transform == null){
+                Debug.LogError("A transform in ballTransforms is null");
+                return;
+            }
+        }
+
+        if(isInitialized){
+            //if already initialized, dispose the existing array before making new one
+            if(ballPositions.IsCreated){
+                ballPositions.Dispose();
+            }
+        }
+
         int numBalls = ballTransforms.Length;
         ballPositions = new NativeArray<float3>(numBalls, Allocator.Persistent);
 
