@@ -1,8 +1,12 @@
 using UnityEngine;
 
 public class MousePointerInteraction : MonoBehaviour{
-    public float forceAmount = 10f;
-    public float reactionRadius = 5f;
+    
+    [SerializeField, Range(0.01f, 10f)]
+    public float forceAmount = 1f;
+
+    [SerializeField, Range(0.01f, 10f)]
+    public float reactionRadius = 1f;
 
     void Update(){
         if (Input.GetMouseButton(0)){ //checks if left mouse button pressed
@@ -16,7 +20,9 @@ public class MousePointerInteraction : MonoBehaviour{
                     Rigidbody rb = collider.GetComponent<Rigidbody>();
                     if (rb != null){
                         Vector3 direction = collider.transform.position - hit.point;
-                        rb.AddForce(direction.normalized * forceAmount, ForceMode.Impulse);
+                        float distance = direction.magnitude;
+                        Vector3 force = direction.normalized * (forceAmount / (distance + 1)); // +1 to avoid division by zero
+                        rb.AddForce(force, ForceMode.Impulse);
                     }
                 }
             }
