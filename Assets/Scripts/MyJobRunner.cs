@@ -26,7 +26,7 @@ public class MyJobRunner : MonoBehaviour{
         //Ensure job is complete
         jobHandle.Complete();
 
-        //access results
+        //access results(example)
         for(int i = 0; i < numElements; i++){
             Debug.Log(jobData[i]);
         }
