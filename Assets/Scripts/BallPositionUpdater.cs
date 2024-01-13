@@ -21,14 +21,15 @@ public class BallPositionUpdater : MonoBehaviour{
     private bool isInitialized = false;
 
     void Start(){
-        InitializePositions();
+        if(ballTransforms != null && ballTransforms.Length > 0){
+            InitializePositions();
+        }
     }
 
     void Update(){
         if(!isInitialized) return;
 
-        UpdateBallPositionsJob job = new UpdateBallPositionsJob
-        {
+        UpdateBallPositionsJob job = new UpdateBallPositionsJob{
             positions = ballPositions,
             deltaTime = Time.deltaTime,
             gravity = new float3(0, -9.81f, 0)
@@ -44,6 +45,9 @@ public class BallPositionUpdater : MonoBehaviour{
     }
 
     void InitializePositions(){
+        
+        if (ballTransforms == null || ballTransforms.Length == 0) return;
+
         int numBalls = ballTransforms.Length;
         ballPositions = new NativeArray<float3>(numBalls, Allocator.Persistent);
 
@@ -55,7 +59,7 @@ public class BallPositionUpdater : MonoBehaviour{
     }
 
     void OnDestroy(){
-        if(isInitialized){
+        if(isInitialized && ballPositions.IsCreated){
             ballPositions.Dispose();
         }
     }
