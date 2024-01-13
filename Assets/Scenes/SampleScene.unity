@@ -265,9 +265,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 8893629090053801034, guid: 68abe4a09707c954aa347c1f28bc2f73, type: 3}
   ballsContainer: {fileID: 732986187}
-  ballsX: 15
-  ballsY: 15
-  ballsZ: 15
+  ballsX: 10
+  ballsY: 10
+  ballsZ: 10
   spacing: 1
 --- !u!114 &732986190
 MonoBehaviour:
@@ -289,7 +289,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 732986187}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0045ce3fd6bd66043ad85f4e66adc4b9, type: 3}
   m_Name: 

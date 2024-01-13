@@ -31,7 +31,7 @@ public class MousePointerInteraction : MonoBehaviour{
             if (rb != null){
                 Vector3 direction = push ? collider.transform.position - point : point - collider.transform.position;
                 float distance = direction.magnitude;
-                Vector3 force = direction.normalized * (forceAmount / (distance + 1));
+                Vector3 force = direction.normalized * (forceAmount / (1 + distance));
                 rb.AddForce(force, ForceMode.Force);
             }
         }
