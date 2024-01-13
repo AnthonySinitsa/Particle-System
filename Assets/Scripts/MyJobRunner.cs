@@ -1,13 +1,17 @@
 using UnityEngine;
 using Unity.Collections;
 using Unity.Jobs;
+using Unity.Mathematics; // for float3, which is Burst-compatible
 
+[BurstCompile]
 public struct MyJob : IJobParallelFor{
-    public NativeArray<float> results;
+    public NativeArray<Vector3> positions;
+    public float deltaTime;
+    public float3 gravity;
 
     public void Execute(int index){
         //parallelized computation here
-        
+        positions[index] += gravity * deltaTime;
     }
 }
 

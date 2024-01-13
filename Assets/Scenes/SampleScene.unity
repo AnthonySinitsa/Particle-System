@@ -263,9 +263,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 8893629090053801034, guid: 68abe4a09707c954aa347c1f28bc2f73, type: 3}
   ballsContainer: {fileID: 732986187}
-  ballsX: 10
-  ballsY: 10
-  ballsZ: 10
+  ballsX: 20
+  ballsY: 20
+  ballsZ: 20
   spacing: 1
 --- !u!1 &963194225
 GameObject:
@@ -352,8 +352,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.07370016, y: 0.9188194, z: -0.20624754, w: -0.328331}
-  m_LocalPosition: {x: 18.177265, y: 12.126584, z: 17.565308}
+  m_LocalRotation: {x: 0.22426678, y: -0.3926529, z: 0.09933696, w: 0.88637483}
+  m_LocalPosition: {x: 33.535133, y: 26.001059, z: -30.26901}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
