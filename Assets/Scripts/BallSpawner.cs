@@ -24,17 +24,16 @@ public class BallSpawner : MonoBehaviour{
     }
 
     void SpawnBalls(){
-        int totalBalls = ballsX * ballsY * ballsZ;
-        Transform[] ballTransforms = new Transform[totalBalls];
+        Transform[] ballTransforms = new Transform[ballsX * ballsY * ballsZ];
         int index = 0;
 
         for(int x = 0; x < ballsX; x++){
             for(int y = 0; y < ballsY; y++){
                 for(int z = 0; z < ballsZ; z++){
-                    Vector3 position = new Vector3(
-                        x * spacing, y * spacing, z * spacing
-                    ) + transform.position;
-                    GameObject newBall = Instantiate(ballPrefab, position, Quaternion.identity, ballsContainer.transform);
+                    Vector3 position = new Vector3(x * spacing, y * spacing, z * spacing) + transform.position;
+                    GameObject newBall = Instantiate(ballPrefab, position, Quaternion.identity);
+                    newBall.transform.SetParent(ballsContainer.transform);
+
                     ballTransforms[index++] = newBall.transform;
 
                     var ballPositionUpdater = GetComponent<BallPositionUpdater>();

@@ -65,6 +65,7 @@ public class BallPositionUpdater : MonoBehaviour{
     }
 
     public void SetBallTransforms(Transform[] transforms){
+        Debug.Log("SetBallTransforms called with " + transforms.Length + " transforms");
         ballTransforms = transforms;
         InitializePositions();
     }
