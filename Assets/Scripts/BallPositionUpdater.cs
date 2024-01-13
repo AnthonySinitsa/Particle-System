@@ -50,22 +50,20 @@ public class BallPositionUpdater : MonoBehaviour{
 
         foreach(var transform in ballTransforms){
             if(transform == null){
-                Debug.LogError("A transform in ballTransforms is null");
+                // Debug.LogError("A transform in ballTransforms is null");
                 return;
             }
         }
 
-        if(isInitialized){
+        if(isInitialized && ballPositions.IsCreated){
             //if already initialized, dispose the existing array before making new one
-            if(ballPositions.IsCreated){
                 ballPositions.Dispose();
-            }
         }
 
         int numBalls = ballTransforms.Length;
         ballPositions = new NativeArray<float3>(numBalls, Allocator.Persistent);
 
-        for(int i = 0; i < numBalls; i ++){
+        for(int i = 0; i < numBalls; i++){
             ballPositions[i] = ballTransforms[i].position;
         }
 
@@ -79,7 +77,7 @@ public class BallPositionUpdater : MonoBehaviour{
     }
 
     public void SetBallTransforms(Transform[] transforms){
-        Debug.Log("SetBallTransforms called with " + transforms.Length + " transforms");
+        // Debug.Log("SetBallTransforms called with " + transforms.Length + " transforms");
         ballTransforms = transforms;
         InitializePositions();
     }

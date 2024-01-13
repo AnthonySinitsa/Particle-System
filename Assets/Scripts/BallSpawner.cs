@@ -40,7 +40,7 @@ public class BallSpawner : MonoBehaviour{
                     if(ballPositionUpdater != null){
                         ballPositionUpdater.SetBallTransforms(ballTransforms);
                     }
-                    Debug.Log($"Creating ball at position : {position}");
+                    // Debug.Log($"Creating ball at position : {position}");
                 }
             }
         }
