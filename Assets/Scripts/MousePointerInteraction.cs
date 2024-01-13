@@ -1,30 +1,38 @@
 using UnityEngine;
 
 public class MousePointerInteraction : MonoBehaviour{
-    
     [SerializeField, Range(0.01f, 10f)]
-    private float forceAmount = 0.01f;
+    private float forceAmount = 1f;
 
     [SerializeField, Range(0.01f, 10f)]
-    private float reactionRadius = 0.01f;
+    private float reactionRadius = 1f;
 
     void Update(){
-        if (Input.GetMouseButton(0)){ //checks if left mouse button pressed
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
+        if (Input.GetMouseButton(0)){//left mouse
+            ApplyForceToBalls(GetMouseWorldPosition(), true); // Push away
+        }
+        else if (Input.GetMouseButton(1)){//right mouse
+            ApplyForceToBalls(GetMouseWorldPosition(), false); // Pull towards
+        }
+    }
 
-            if (Physics.Raycast(ray, out hit, 100f)){ //adjust max distance
-                Collider[] colliders = Physics.OverlapSphere(hit.point, reactionRadius);
+    private Vector3 GetMouseWorldPosition(){
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit, 100f)){
+            return hit.point;
+        }
+        return Vector3.zero;
+    }
 
-                foreach (var collider in colliders){
-                    Rigidbody rb = collider.GetComponent<Rigidbody>();
-                    if (rb != null){
-                        Vector3 direction = collider.transform.position - hit.point;
-                        float distance = direction.magnitude;
-                        Vector3 force = direction.normalized * (forceAmount / (distance + 1)); // +1 to avoid division by zero
-                        rb.AddForce(force, ForceMode.Force);
-                    }
-                }
+    private void ApplyForceToBalls(Vector3 point, bool push){
+        Collider[] colliders = Physics.OverlapSphere(point, reactionRadius);
+        foreach (var collider in colliders){
+            Rigidbody rb = collider.GetComponent<Rigidbody>();
+            if (rb != null){
+                Vector3 direction = push ? collider.transform.position - point : point - collider.transform.position;
+                float distance = direction.magnitude;
+                Vector3 force = direction.normalized * (forceAmount / (distance + 1));
+                rb.AddForce(force, ForceMode.Force);
             }
         }
     }
